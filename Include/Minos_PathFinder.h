@@ -37,7 +37,7 @@ ZeniMax Media Inc., Suite 120, Rockville, Maryland 20850 USA.
 using namespace MINOS;
 
 // Flags                                                                     //
-typedef enum MINOSFlags
+enum MINOSFlags
 {
 	MINOS_REGULAR = 0x0000,
 	MINOS_STEALTH = 0x0001,
@@ -84,7 +84,7 @@ class PathFinder
 		UBool Move(const ULong & flags, const ULong & from, const ULong & to, SLong * rstep, UWord ** rlist);
 		UBool Flee(const ULong & flags, const ULong & from, const EERIE_3D & danger, const Float & safe_distance, SLong * rstep, UWord ** rlist);
 		UBool WanderAround(const ULong & flags, const ULong & from, const Float & around_radius, SLong * rstep, UWord ** rlist);
-		UBool LookFor(const ULong & flags, const ULong & from, const EERIE_3D & pos, const Float & radius, SLong * rstep, UWord ** rlist);
+		UBool LookFor(const ULong & flags, const ULong & from, const EERIE_3D & pos, const Float & rad, SLong * rstep, UWord ** rlist);
 		Void Clean();
 	private:
 		// Implementation                                                            //

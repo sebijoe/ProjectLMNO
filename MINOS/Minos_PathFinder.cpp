@@ -502,7 +502,7 @@ ULong PathFinder::GetNearestNode(const EERIE_3D & pos) const
 	return best;
 }
 
-UBool PathFinder::LookFor(const ULong & flags, const ULong & f, const EERIE_3D & pos, const Float & radius, SLong * rstep, UWord ** rlist)
+UBool PathFinder::LookFor(const ULong & flags, const ULong & f, const EERIE_3D & pos, const Float & rad, SLong * rstep, UWord ** rlist)
 {
 	Void * ptr;
 	ULong step_c, to, last, next;
@@ -518,7 +518,7 @@ UBool PathFinder::LookFor(const ULong & flags, const ULong & f, const EERIE_3D &
 		return UFALSE;
 	}
 
-	if (radius <= MIN_RADIUS)
+	if (rad <= MIN_RADIUS)
 	{
 		*rlist = (UWord *)malloc(sizeof(UWord));
 		** rlist = (UWord)f;
@@ -535,12 +535,12 @@ UBool PathFinder::LookFor(const ULong & flags, const ULong & f, const EERIE_3D &
 
 	for (ULong i(0); i < step_c; i++)
 	{
-		EERIE_3D pos;
+		EERIE_3D postolookfor;
 
-		pos.x = map_d[to].pos.x + radius * frnd();
-		pos.y = map_d[to].pos.y + radius * frnd();
-		pos.z = map_d[to].pos.z + radius * frnd();
-		next = GetNearestNode(pos);
+        postolookfor.x = map_d[to].pos.x + rad * frnd();
+        postolookfor.y = map_d[to].pos.y + rad * frnd();
+        postolookfor.z = map_d[to].pos.z + rad * frnd();
+		next = GetNearestNode(postolookfor);
 
 		if (Move(flags, last, next, &temp_c, &temp_d) && temp_c)
 		{
