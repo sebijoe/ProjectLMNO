@@ -43,7 +43,7 @@
     <_ProjectFileVersion>14.0.23107.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>../../tmp/$(Configuration)/$(TargetName)/</OutDir>
+    <OutDir>../../game/</OutDir>
     <IntDir>../../tmp/$(Configuration)/$(TargetName)/</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -89,10 +89,10 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/NODEFAULTLIB:LIBC %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>ArxCommon_debug.lib;implode.lib;Mercury_Debug.lib;Minos_Debug.lib;HERMES_debug.LIB;EERIE_debug.LIB;eaxguid.lib;dinput.lib;zlib.lib;jpeglib.lib;wsock32.lib;dxguid.lib;dsound.lib;winmm.lib;comctl32.lib;ddraw.lib;Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../../game/arx.exe</OutputFile>
+      <AdditionalDependencies>ArxCommon.lib;implode.lib;Mercury.lib;Minos.lib;HERMES.LIB;EERIE.LIB;eaxguid.lib;dinput.lib;zlib.lib;jpeglib.lib;wsock32.lib;dxguid.lib;dsound.lib;winmm.lib;comctl32.lib;ddraw.lib;Advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>..\DX\Lib;..\lib\otherlibs;../../tmp/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\DX\Lib;..\lib\otherlibs;../../tmp/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>../../game/DANAE.pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>

@@ -49,8 +49,8 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>../../tmp/$(Configuration)/$(ProjectName)</OutDir>
-    <IntDir>../../tmp/$(Configuration)/$(ProjectName)</IntDir>
+    <OutDir>../../game/</OutDir>
+    <IntDir>../../tmp/$(Configuration)/$(ProjectName)/</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,7 +130,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../../game/ARX_SCRIPT_DEBUGGER.dll</OutputFile>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>..\lib\otherlibs;..\lib;..\DX\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>.\SCRIPT_DEBUGGER.def</ModuleDefinitionFile>
@@ -140,6 +140,7 @@
       <DataExecutionPrevention />
       <ImportLibrary>$(IntDir)/ARX_SCRIPT_DEBUGGER.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <BuildLog>
       <Path>$(IntDir)$(MSBuildProjectName).log</Path>

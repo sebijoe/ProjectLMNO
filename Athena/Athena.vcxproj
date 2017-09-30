@@ -48,7 +48,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>../../tmp/$(Configuration)/$(TargetName)/</OutDir>
+    <OutDir>../../game/</OutDir>
     <IntDir>../../tmp/$(Configuration)/$(TargetName)/</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
@@ -145,15 +145,15 @@
     </ResourceCompile>
     <Link>
       <AdditionalOptions>/NODEFAULTLIB:LIBC %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>hermes_debug.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../../game/Athena.dll</OutputFile>
+      <AdditionalDependencies>hermes.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetPath)</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>..\lib\otherlibs;../../tmp/lib;..\DX\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\otherlibs;../../tmp/lib/$(Configuration);..\DX\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>../../game/Athena.pdb</ProgramDatabaseFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention />
-      <ImportLibrary>../../tmp/lib/Athena.lib</ImportLibrary>
+      <ImportLibrary>$(IntDir)Athena.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
